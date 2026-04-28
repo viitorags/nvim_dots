@@ -312,9 +312,12 @@ local function setup_servers()
 	}
 
 	for server, config in pairs(servers) do
-		local lsp = "" .. server
-		vim.lsp.config(lsp, config)
-		vim.lsp.enable(server)
+		vim.lsp.config(server, config)
+		local cmd = vim.lsp.config[server].cmd
+		local exe = type(cmd) == "table" and cmd[1] or cmd
+		if type(exe) == "string" and vim.fn.exepath(exe) ~= "" then
+			vim.lsp.enable(server)
+		end
 	end
 end
 

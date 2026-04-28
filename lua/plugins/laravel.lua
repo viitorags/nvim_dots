@@ -4,6 +4,7 @@ vim.pack.add({
 	"https://github.com/tpope/vim-dotenv",
 	"https://github.com/MunifTanjim/nui.nvim",
 	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/nvim-neotest/nvim-nio",
 })
 
 if vim.fn.filereadable("artisan") == 1 then
