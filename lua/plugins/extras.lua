@@ -34,7 +34,7 @@ safe_require("todo-comments")
 safe_require("nvim-highlight-colors", {
 	enable_tailwind = true,
 	render = "virtual",
-	virtual_symbol = "",
+	virtual_symbol = "",
 })
 safe_require("lspsaga")
 safe_require("render-markdown")
@@ -44,12 +44,13 @@ safe_require("nvim-autopairs")
 safe_require("overseer")
 safe_require("which-key")
 safe_require("tiny-inline-diagnostic")
-safe_require("smear-cursor", {
+safe_require("smear_cursor", {
 	stiffness = 0.5,
 	trailing_stiffness = 0.49,
 	never_draw_over_target = false,
 	legacy_computing_symbols_support = true,
-	smear_insert_mode = false,
+	distance_stop_animating_vertical_bar = 0.1,
+	smear_insert_mode = true,
 })
 
 -- Vim globals
