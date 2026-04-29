@@ -64,6 +64,7 @@ local function setup_servers()
 				"package.json",
 				"jsconfig.json",
 				".git",
+				".envrc",
 			},
 			settings = {
 				vtsls = {
