@@ -38,7 +38,21 @@ safe_require("nvim-highlight-colors", {
 })
 safe_require("lspsaga")
 safe_require("render-markdown")
-safe_require("direnv", { autoload_direnv = true })
+safe_require("direnv", {
+	bin = "direnv",
+
+	autoload_direnv = true,
+
+	statusline = {
+		enabled = true,
+		icon = "󱚟",
+	},
+
+	notifications = {
+		level = vim.log.levels.INFO,
+		silent_autoload = false,
+	},
+})
 safe_require("nvim-ts-autotag")
 safe_require("nvim-autopairs")
 safe_require("overseer")

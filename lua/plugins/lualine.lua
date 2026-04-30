@@ -73,6 +73,9 @@ lualine.setup({
 			{ "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " } },
 		},
 		lualine_y = {
+			function()
+				return require("direnv").statusline()
+			end,
 			{ "encoding", fmt = string.upper },
 			{ "progress", icon = "" },
 		},
