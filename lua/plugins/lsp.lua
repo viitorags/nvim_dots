@@ -66,13 +66,28 @@ local function setup_servers()
 				".git",
 				".envrc",
 			},
-			settings = {
-				vtsls = {
-					tsserver = {
-						globalPlugins = { vue_plugin },
-					},
-				},
-			},
+			on_attach = function(client)
+				client.server_capabilities.foldingRangeProvider = false
+			end,
+			before_init = function(params, config)
+				local vue_plugin_path = get_vue_plugin_path()
+				if vue_plugin_path and vue_plugin_path ~= "" then
+					config.settings = vim.tbl_deep_extend("force", config.settings or {}, {
+						vtsls = {
+							tsserver = {
+								globalPlugins = {
+									{
+										name = "@vue/typescript-plugin",
+										location = vue_plugin_path,
+										languages = { "vue" },
+										configNamespace = "typescript",
+									},
+								},
+							},
+						},
+					})
+				end
+			end,
 			capabilities = capabilities,
 		},
 
@@ -314,11 +329,7 @@ local function setup_servers()
 
 	for server, config in pairs(servers) do
 		vim.lsp.config(server, config)
-		local cmd = vim.lsp.config[server].cmd
-		local exe = type(cmd) == "table" and cmd[1] or cmd
-		if type(exe) == "string" and vim.fn.exepath(exe) ~= "" then
-			vim.lsp.enable(server)
-		end
+		vim.lsp.enable(server)
 	end
 end
 
