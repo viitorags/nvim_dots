@@ -66,28 +66,13 @@ local function setup_servers()
 				".git",
 				".envrc",
 			},
-			on_attach = function(client)
-				client.server_capabilities.foldingRangeProvider = false
-			end,
-			before_init = function(params, config)
-				local vue_plugin_path = get_vue_plugin_path()
-				if vue_plugin_path and vue_plugin_path ~= "" then
-					config.settings = vim.tbl_deep_extend("force", config.settings or {}, {
-						vtsls = {
-							tsserver = {
-								globalPlugins = {
-									{
-										name = "@vue/typescript-plugin",
-										location = vue_plugin_path,
-										languages = { "vue" },
-										configNamespace = "typescript",
-									},
-								},
-							},
-						},
-					})
-				end
-			end,
+			settings = {
+				vtsls = {
+					tsserver = {
+						globalPlugins = { vue_plugin },
+					},
+				},
+			},
 			capabilities = capabilities,
 		},
 
@@ -209,6 +194,9 @@ local function setup_servers()
 		},
 
 		tailwindcss = {
+			on_attach = function(client)
+				client.server_capabilities.documentColorProvider = false
+			end,
 			filetypes = {
 				"html",
 				"css",
@@ -326,6 +314,13 @@ local function setup_servers()
 
 		jdtls = { capabilities = capabilities },
 	}
+
+	vim.api.nvim_create_autocmd("User", {
+		pattern = "DirenvLoaded",
+		callback = function()
+			vim.cmd("silent! lsp restart")
+		end,
+	})
 
 	for server, config in pairs(servers) do
 		vim.lsp.config(server, config)

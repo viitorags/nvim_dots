@@ -44,6 +44,9 @@
               typescript
               codesnap
               tree-sitter
+              go
+              php
+              delve
             ];
           };
 

@@ -2,6 +2,7 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp", name = "blink", version = "v1.10.2" },
 	"https://github.com/L3MON4D3/LuaSnip",
 	"https://github.com/rafamadriz/friendly-snippets",
+	"https://github.com/echasnovski/mini.icons",
 })
 
 vim.api.nvim_create_autocmd("InsertEnter", {
@@ -17,8 +18,11 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 		package.cpath = table.concat(clean_cpath, ";")
 
 		require("luasnip.loaders.from_vscode").lazy_load()
+
+		vim.api.nvim_set_hl(0, "CmpMenu", { bg = "none" })
+		vim.api.nvim_set_hl(0, "CmpItemKind", { link = "Comment" })
+
 		require("blink.cmp").setup({
-			-- vim.api.nvim_set_hl(0, 'CmpMenu', { bg = 'none' })
 			keymap = {
 				preset = "default",
 				["<CR>"] = {
@@ -37,7 +41,6 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 
 			completion = {
 				menu = {
-					border = "rounded",
 					winhighlight = "Normal:BlinkMenu,FloatBorder:BlinkMenu,CursorLine:Visual,Search:None",
 					draw = {
 						columns = {
@@ -55,7 +58,6 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 				documentation = {
 					auto_show = true,
 					window = {
-						border = "rounded",
 						winhighlight = "Normal:BlinkMenu,FloatBorder:BlinkMenu,CursorLine:Visual,Search:None",
 					},
 				},

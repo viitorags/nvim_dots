@@ -36,12 +36,14 @@ local function lsp_status()
 	return "[SYS:" .. table.concat(names, ",") .. "]"
 end
 
+vim.api.nvim_set_hl(0, "LualineIcon", {})
+
 lualine.setup({
 	options = {
-		theme = "auto",
+		theme = "gruvbox-material",
 		icons_enabled = true,
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		component_separators = "",
+		section_separators = "",
 		globalstatus = true,
 		refresh = { statusline = 100, tabline = 100, winbar = 100 },
 	},
@@ -52,7 +54,6 @@ lualine.setup({
 				fmt = function(str)
 					return "󰣚 " .. str:upper()
 				end,
-				separator = { right = "" },
 			},
 		},
 		lualine_b = {
@@ -60,14 +61,7 @@ lualine.setup({
 			{ lsp_status, color = { gui = "bold" } },
 		},
 		lualine_c = {
-			{
-				function()
-					return "PATH:"
-				end,
-				color = { fg = "#585b70" },
-				padding = { left = 1, right = 0 },
-			},
-			{ "filename", path = 1, symbols = { modified = "󰶐", readonly = "" } },
+			{ "filename", path = 1, symbols = { modified = " 󰶐", readonly = " " } },
 		},
 		lualine_x = {
 			{ "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " } },
@@ -77,37 +71,47 @@ lualine.setup({
 				return require("direnv").statusline()
 			end,
 			{ "encoding", fmt = string.upper },
-			{ "progress", icon = "" },
-		},
-		lualine_z = {
-			{ "location", icon = "", separator = { left = "" } },
-		},
-	},
-	tabline = {
-		lualine_a = {
 			{
-				"filename",
-				path = 0,
-				fmt = function(name)
-					return "󰈚 [CORE_FS:" .. name:upper() .. "]"
+				function()
+					return ""
 				end,
-				separator = { right = "" },
+				color = "LualineIcon",
 			},
-		},
-		lualine_x = {
-			{ gitsigns_diff, padding = { right = 1 } },
+			{ "progress" },
 		},
 		lualine_z = {
 			{
-				"branch",
-				icon = "",
-				fmt = function(str)
-					return "NET://" .. str:upper()
+				function()
+					return ""
 				end,
-				separator = { left = "" },
-				color = { gui = "bold" },
+				color = "LualineIcon",
 			},
+			{ "location" },
 		},
 	},
+	-- tabline = {
+	-- 	lualine_a = {
+	-- 		{
+	-- 			"filename",
+	-- 			path = 0,
+	-- 			fmt = function(name)
+	-- 				return "󰈚 " .. name:upper()
+	-- 			end,
+	-- 		},
+	-- 	},
+	-- 	lualine_x = {
+	-- 		{ gitsigns_diff, padding = { right = 1 } },
+	-- 	},
+	-- 	lualine_z = {
+	-- 		{
+	-- 			"branch",
+	-- 			icon = "",
+	-- 			fmt = function(str)
+	-- 				return str:upper()
+	-- 			end,
+	-- 			color = { gui = "bold" },
+	-- 		},
+	-- 	},
+	-- },
 	extensions = { "neo-tree", "quickfix", "fugitive" },
 })
