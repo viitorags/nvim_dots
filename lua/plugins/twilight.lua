@@ -1,5 +1,6 @@
-vim.pack.add({
-	"https://github.com/folke/twilight.nvim",
-})
-
-require("twilight").setup({})
+return {
+	"folke/twilight.nvim",
+	config = function()
+		require("twilight").setup({})
+	end,
+}

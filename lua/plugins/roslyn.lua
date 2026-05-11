@@ -1,5 +1,6 @@
-vim.pack.add({
-	"https://github.com/seblyng/roslyn.nvim",
-})
-
-require("roslyn").setup({})
+return {
+	"seblyng/roslyn.nvim",
+	config = function()
+		require("roslyn").setup({})
+	end,
+}

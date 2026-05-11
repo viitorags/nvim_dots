@@ -1,7 +1,10 @@
-vim.pack.add({
-	"https://github.com/kristijanhusak/vim-dadbod-ui",
-	"https://github.com/tpope/vim-dadbod",
-	"https://github.com/kristijanhusak/vim-dadbod-completion",
-})
-
-vim.g.db_ui_use_nerd_fonts = 1
+return {
+	"tpope/vim-dadbod",
+	dependencies = {
+		"kristijanhusak/vim-dadbod-ui",
+		"kristijanhusak/vim-dadbod-completion",
+	},
+	config = function()
+		vim.g.db_ui_use_nerd_fonts = 1
+	end,
+}

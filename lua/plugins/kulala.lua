@@ -1,7 +1,8 @@
-vim.pack.add({
-	"https://github.com/mistweaverco/kulala.nvim",
-})
-
-require("kulala").setup({
-	global_keymaps = true,
-})
+return {
+	"mistweaverco/kulala.nvim",
+	config = function()
+		require("kulala").setup({
+			global_keymaps = true,
+		})
+	end,
+}

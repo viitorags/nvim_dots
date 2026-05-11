@@ -1,6 +1,9 @@
-vim.pack.add({
-	"https://github.com/nvim-flutter/flutter-tools.nvim",
-	"https://github.com/nvim-lua/plenary.nvim",
-})
-
-require("flutter-tools").setup({})
+return {
+  'nvim-flutter/flutter-tools.nvim',
+  lazy = false,
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'stevearc/dressing.nvim',
+  },
+  config = true,
+}

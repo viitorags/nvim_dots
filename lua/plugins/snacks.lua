@@ -1,5 +1,6 @@
-vim.pack.add({ "https://github.com/folke/snacks.nvim" })
-
+return {
+  "folke/snacks.nvim",
+  config = function() 
 require("snacks").setup({
 	dashboard = {
 		enabled = true,
@@ -75,7 +76,6 @@ require("snacks").setup({
 			{ section = "header" },
 			-- { section = 'terminal', cmd = 'cowsay -t "JOYBOY"', hl = 'header', padding = 1, indent = 4 },
 			{ section = "keys", padding = 2, gap = 0 },
-			{ section = "startup" },
 		},
 	},
 	indent = {
@@ -338,3 +338,5 @@ local snacks_keys = {
 for _, key in ipairs(snacks_keys) do
 	vim.keymap.set("n", key[1], key[2], { desc = key.desc, noremap = true, silent = true })
 end
+  end
+}

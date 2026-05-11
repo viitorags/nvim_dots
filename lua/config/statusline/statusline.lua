@@ -1,8 +1,8 @@
 local M = {}
 
 M.modes = {
-	"Insert",
-	"Normal",
+  "Insert",
+  "Normal",
 }
 
 return M
