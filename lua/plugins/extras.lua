@@ -58,7 +58,17 @@ return {
 	{
 		"NotAShelf/direnv.nvim",
 		config = function()
-			require("direnv").setup({})
+			require("direnv").setup({
+				autoload_direnv = true,
+				notifications = {
+					level = vim.log.levels.INFO,
+					silent_autoload = false,
+				},
+				statusline = {
+					enabled = true,
+					icon = "󱚟",
+				},
+			})
 		end,
 	},
 }
