@@ -44,9 +44,9 @@
               typescript
               codesnap
               tree-sitter
-              go
-              php
               delve
+              vue-language-server
+              tslib
             ];
           };
 
