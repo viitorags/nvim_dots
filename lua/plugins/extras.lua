@@ -1,7 +1,9 @@
 return {
 	{
 		"mistricky/codesnap.nvim",
-		tag = "v1.6.3",
+		cmd = { "CodeSnap", "CodeSnapSave" },
+		-- build = "make",
+		opts = require("configs.codesnap"),
 	},
 	{ "HiPhish/rainbow-delimiters.nvim" },
 	{
