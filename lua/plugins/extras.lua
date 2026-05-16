@@ -1,7 +1,6 @@
 return {
 	{
 		"mistricky/codesnap.nvim",
-		tag = "v2.0.0",
 		opts = {},
 	},
 	{ "HiPhish/rainbow-delimiters.nvim" },

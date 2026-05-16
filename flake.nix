@@ -55,6 +55,7 @@
               lazy-nvim
               nvim-treesitter.withAllGrammars
               nvim-treesitter-textobjects
+              codesnap-nvim
             ];
           };
 
