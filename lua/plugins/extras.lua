@@ -1,8 +1,7 @@
 return {
 	{
 		"mistricky/codesnap.nvim",
-		-- build = "make",
-		opts = require("configs.codesnap"),
+		opts = {},
 	},
 	{ "HiPhish/rainbow-delimiters.nvim" },
 	{
