@@ -32,7 +32,11 @@ require("lazy").setup({
 	{ import = "plugins" },
 }, lazy_config)
 
--- load theme
+-- load theme (compile cache if missing)
+local base46_ok, base46 = pcall(require, "base46")
+if base46_ok then
+	base46.load_all_highlights()
+end
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 

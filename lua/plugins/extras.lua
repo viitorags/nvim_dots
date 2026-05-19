@@ -55,7 +55,10 @@ return {
 			smear_insert_mode = true,
 		},
 	},
-	{ "RRethy/vim-illuminate" },
+  {
+    "RRethy/vim-illuminate",
+    opts = {}
+  },
 	{
 		"NotAShelf/direnv.nvim",
 		config = function()
@@ -64,10 +67,6 @@ return {
 				notifications = {
 					level = vim.log.levels.INFO,
 					silent_autoload = false,
-				},
-				statusline = {
-					enabled = true,
-					icon = "󱚟",
 				},
 			})
 		end,

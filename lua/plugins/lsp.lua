@@ -1,5 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = { "blink" },
+	lazy = false,
 	config = function()
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		capabilities.textDocument.completion.completionItem = {
