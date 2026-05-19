@@ -1,5 +1,7 @@
 return {
 	"folke/snacks.nvim",
+	lazy = false,
+	priority = 1000,
 	config = function()
 		require("snacks").setup({
 			dashboard = {
@@ -20,11 +22,18 @@ return {
 							desc = "Find File",
 							action = ":lua Snacks.dashboard.pick('smart')",
 						},
+						-- { icon = ' ', key = 'e', desc = 'New File', action = ':ene | startinsert' },
+						-- {
+						--   icon = ' ',
+						--   key = 'g',
+						--   desc = 'Find Text',
+						--   action = ":lua Snacks.dashboard.pick('live_grep')",
+						-- },
 						{
 							function()
 								if require("nixCatsUtils").isNixCats == true then
 									return {
-										icon = " ",
+										icon = " ",
 										key = "c",
 										desc = "Dotfiles Folder",
 										action = ":tcd $HOME/dotfiles/ | :e .",
@@ -35,13 +44,13 @@ return {
 							end,
 						},
 						{
-							icon = " ",
+							icon = " ",
 							key = "r",
 							desc = "Recent Files",
 							action = ":lua Snacks.dashboard.pick('oldfiles')",
 						},
 						{
-							icon = " ",
+							icon = " ",
 							key = "p",
 							desc = "Project Folder",
 							action = ":tcd $HOME/Workspace/Projects/ | :e .",
@@ -52,7 +61,7 @@ return {
 									return {}
 								else
 									return {
-										icon = " ",
+										icon = " ",
 										key = "s",
 										desc = "Settings",
 										action = ":e $MYVIMRC | :tcd %:p:h",
@@ -67,7 +76,7 @@ return {
 							action = ":Lazy",
 							enabled = package.loaded.lazy ~= nil,
 						},
-						{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+						{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 					},
 				},
 				sections = {
@@ -261,78 +270,5 @@ return {
 				},
 			},
 		})
-
-		local snacks_keys = {
-			{
-				"<leader>e",
-				function()
-					local explorer_pickers = Snacks.picker.get({ source = "explorer" })
-					for _, v in pairs(explorer_pickers) do
-						if v:is_focused() then
-							v:close()
-						else
-							v:focus()
-						end
-					end
-					if #explorer_pickers == 0 then
-						Snacks.picker.explorer()
-					end
-				end,
-				desc = "Open Explorer",
-			},
-			{
-				"<leader>f",
-				function()
-					Snacks.picker.smart()
-				end,
-				desc = "Smart Find Files",
-			},
-			{
-				"<leader>b",
-				function()
-					Snacks.picker.buffers()
-				end,
-				desc = "Buffers",
-			},
-			{
-				"<leader>/",
-				function()
-					Snacks.picker.grep()
-				end,
-				desc = "Grep",
-			},
-			{
-				"<leader>:",
-				function()
-					Snacks.picker.command_history()
-				end,
-				desc = "Command History",
-			},
-			{
-				"<leader>n",
-				function()
-					Snacks.picker.notifications()
-				end,
-				desc = "Notification History",
-			},
-			{
-				"<leader>v",
-				function()
-					Snacks.terminal()
-				end,
-				desc = "Open terminal",
-			},
-			{
-				"<leader>g",
-				function()
-					Snacks.lazygit()
-				end,
-				desc = "Open lazygit in terminal",
-			},
-		}
-
-		for _, key in ipairs(snacks_keys) do
-			vim.keymap.set("n", key[1], key[2], { desc = key.desc, noremap = true, silent = true })
-		end
 	end,
 }

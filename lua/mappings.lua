@@ -3,6 +3,28 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- Snacks keymaps (override NvChad's NvimTree/Telescope defaults)
+map("n", "<leader>e", function()
+	local explorer_pickers = Snacks.picker.get({ source = "explorer" })
+	for _, v in pairs(explorer_pickers) do
+		if v:is_focused() then
+			v:close()
+		else
+			v:focus()
+		end
+	end
+	if #explorer_pickers == 0 then
+		Snacks.picker.explorer()
+	end
+end, { desc = "Open Explorer", noremap = true, silent = true })
+map("n", "<leader>f", function() Snacks.picker.smart() end, { desc = "Smart Find Files", noremap = true, silent = true })
+map("n", "<leader>b", function() Snacks.picker.buffers() end, { desc = "Buffers", noremap = true, silent = true })
+map("n", "<leader>/", function() Snacks.picker.grep() end, { desc = "Grep", noremap = true, silent = true })
+map("n", "<leader>:", function() Snacks.picker.command_history() end, { desc = "Command History", noremap = true, silent = true })
+map("n", "<leader>n", function() Snacks.picker.notifications() end, { desc = "Notification History", noremap = true, silent = true })
+map("n", "<leader>v", function() Snacks.terminal() end, { desc = "Open terminal", noremap = true, silent = true })
+map("n", "<leader>g", function() Snacks.lazygit() end, { desc = "Open lazygit", noremap = true, silent = true })
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
