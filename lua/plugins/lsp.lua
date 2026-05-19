@@ -1,30 +1,12 @@
 return {
 	"neovim/nvim-lspconfig",
+	event = "User FilePost",
 	dependencies = { "blink" },
-	lazy = false,
 	config = function()
-		local capabilities = require("blink.cmp").get_lsp_capabilities()
-		capabilities.textDocument.completion.completionItem = {
-			documentationFormat = { "markdown", "plaintext" },
-			snippetSupport = true,
-			preselectSupport = true,
-			insertReplaceSupport = true,
-			labelDetailsSupport = true,
-			deprecatedSupport = true,
-			commitCharactersSupport = true,
-			tagSupport = { valueSet = { 1 } },
-			resolveSupport = {
-				properties = {
-					"documentation",
-					"detail",
-					"additionalTextEdits",
-				},
-			},
-		}
-
+		-- Enhance global capabilities with blink completions support
 		local ok, blink = pcall(require, "blink.cmp")
 		if ok then
-			capabilities = blink.get_lsp_capabilities(capabilities)
+			vim.lsp.config("*", { capabilities = blink.get_lsp_capabilities() })
 		end
 
 		local function get_vue_plugin_path()
@@ -295,8 +277,6 @@ return {
 			})
 
 			for server, config in pairs(servers) do
-				config.capabilities = config.capabilities or capabilities
-
 				vim.lsp.config(server, config)
 				vim.lsp.enable(server)
 			end
