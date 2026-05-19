@@ -2,6 +2,7 @@ return {
 	"saghen/blink.cmp",
 	branch = "v1.10.2",
 	name = "blink",
+	-- enabled = false,
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		"echasnovski/mini.icons",

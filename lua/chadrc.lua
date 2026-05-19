@@ -18,6 +18,10 @@ M.ui = {
 	tabufline = {
 		enabled = false,
 	},
+	statusline = {
+		theme = "minimal",
+		separator_style = "round",
+	},
 }
 
 return M
