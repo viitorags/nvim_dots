@@ -46,21 +46,6 @@ return {
 			indent = {
 				enable = true,
 			},
-
-			fold = {
-				enable = true,
-			},
-
-			playground = {
-				enable = false,
-			},
-			modules = {},
-		})
-
-		vim.api.nvim_create_autocmd("FileType", {
-			callback = function()
-				pcall(vim.treesitter.start)
-			end,
 		})
 	end,
 }
