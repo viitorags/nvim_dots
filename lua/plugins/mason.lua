@@ -3,6 +3,7 @@ if require("nixCatsUtils").isNixCats then
 else
 	return {
 		"williamboman/mason.nvim",
+		cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonUninstall" },
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",

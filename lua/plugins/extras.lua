@@ -1,11 +1,13 @@
 return {
 	{
 		"mistricky/codesnap.nvim",
+		cmd = { "CodeSnap", "CodeSnapSave" },
 		opts = {},
 	},
-	{ "HiPhish/rainbow-delimiters.nvim" },
+	{ "HiPhish/rainbow-delimiters.nvim", event = "User FilePost" },
 	{
 		"brenoprata10/nvim-highlight-colors",
+		event = "User FilePost",
 		opts = {
 			enable_tailwind = true,
 			render = "virtual",
@@ -25,28 +27,32 @@ return {
 		end,
 		ft = { "markdown" },
 	},
-	{ "MeanderingProgrammer/render-markdown.nvim" },
-	{ "windwp/nvim-ts-autotag", opts = {} },
-	{ "nvim-tree/nvim-web-devicons", opts = {} },
-	{ "windwp/nvim-autopairs", opts = {} },
-	{ "stevearc/overseer.nvim", opts = {} },
-	{ "folke/which-key.nvim", opts = {} },
+	{ "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown" } },
+	{ "windwp/nvim-ts-autotag", event = "User FilePost", opts = {} },
+	{ "nvim-tree/nvim-web-devicons", lazy = false, opts = {} },
+	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
+	{ "stevearc/overseer.nvim", event = "VeryLazy", opts = {} },
+	{ "folke/which-key.nvim", event = "VeryLazy", opts = {} },
 	{
 		"folke/todo-comments.nvim",
+		event = "User FilePost",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {},
 	},
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	{
 		"rachartier/tiny-code-action.nvim",
+		event = "User FilePost",
 		opts = { picker = "buffer" },
 	},
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "User FilePost",
 		opts = {},
 	},
 	{
 		"sphamba/smear-cursor.nvim",
+		event = "VeryLazy",
 		opts = {
 			stiffness = 0.5,
 			trailing_stiffness = 0.49,
@@ -56,10 +62,7 @@ return {
 			smear_insert_mode = true,
 		},
 	},
-	{
-		"RRethy/vim-illuminate",
-		opts = {},
-	},
+	{ "RRethy/vim-illuminate", event = "User FilePost" },
 	{
 		"NotAShelf/direnv.nvim",
 		lazy = false,
