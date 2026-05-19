@@ -13,6 +13,7 @@ return {
 
   performance = {
     rtp = {
+      reset = false,
       disabled_plugins = {
         "2html_plugin",
         "tohtml",
