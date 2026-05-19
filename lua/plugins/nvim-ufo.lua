@@ -1,5 +1,6 @@
 return {
 	"kevinhwang91/nvim-ufo",
+	event = "User FilePost",
 	dependencies = {
 		"kevinhwang91/promise-async",
 	},
