@@ -55,10 +55,10 @@ return {
 			smear_insert_mode = true,
 		},
 	},
-  {
-    "RRethy/vim-illuminate",
-    opts = {}
-  },
+	{
+		"RRethy/vim-illuminate",
+		opts = {},
+	},
 	{
 		"NotAShelf/direnv.nvim",
 		config = function()

@@ -1,4 +1,4 @@
-require "nvchad.autocmds"
+require("nvchad.autocmds")
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "jsonq", "json", "nix", "lua" },
