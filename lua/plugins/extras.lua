@@ -14,6 +14,7 @@ return {
 	},
 	{
 		"nvimdev/lspsaga.nvim",
+		event = "User FilePost",
 		opts = {},
 	},
 	{
