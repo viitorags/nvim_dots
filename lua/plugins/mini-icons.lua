@@ -37,25 +37,25 @@ return {
 				["config"] = { glyph = "󱁿", hl = "MiniIconsGreen" },
 				["Config"] = { glyph = "󱁿", hl = "MiniIconsGreen" },
 				["test"] = { hl = "MiniIconsRed" },
-				[".git"] = { glyph = "", hl = "MiniIconsOrange" },
+				[".git"] = { glyph = "", hl = "MiniIconsOrange" },
 				["scripts"] = { glyph = "󱁽", hl = "MiniIconsYellow" },
 			},
 
 			file = {
 				["docker-composer.yml"] = { glyph = "󰡨", hl = "MiniIconsRed" },
 				["docker-compose.yml"] = { glyph = "󰡨", hl = "MiniIconsRed" },
-				["go.mod"] = { glyph = "", hl = "MiniIconsPurple" },
-				["go.sum"] = { glyph = "", hl = "MiniIconsGreen" },
+				["go.mod"] = { glyph = "", hl = "MiniIconsPurple" },
+				["go.sum"] = { glyph = "", hl = "MiniIconsGreen" },
 			},
 
 			filetype = {
-				["javascript"] = { glyph = "", hl = "MiniIconsYellow" },
-				["css"] = { glyph = "", hl = "MiniIconsBlue" },
-				["go"] = { glyph = "", hl = "MiniIconsBlue" },
+				["javascript"] = { glyph = "", hl = "MiniIconsYellow" },
+				["css"] = { glyph = "", hl = "MiniIconsBlue" },
+				["go"] = { glyph = "", hl = "MiniIconsBlue" },
 			},
 
 			extension = {
-				["ejs"] = { glyph = " ", hl = "MiniIconsYellow" },
+				["ejs"] = { glyph = " ", hl = "MiniIconsYellow" },
 				["rest"] = { glyph = "󱂛", hl = "MiniIconsRed" },
 			},
 		})

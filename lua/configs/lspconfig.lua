@@ -1,0 +1,1 @@
+-- LSP servers are configured in lua/plugins/lsp.lua

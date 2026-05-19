@@ -1,8 +1,10 @@
----@diagnostic disable: missing-parameter
-local opts = { noremap = true, silent = true }
-local ui = require("util.ui")
+require "nvchad.mappings"
 
 local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
 
 map("n", "<C-a>", ":normal ggVG<CR>", opts)
 
@@ -31,9 +33,9 @@ for i = 1, 9 do
 	end)
 end
 
-map("n", "<C-q>", ui.bufremove, opts)
-
-map("n", "<leader>g", ":lua Lazygit_toggle()<CR>", opts)
+map("n", "<C-q>", function()
+	require("util.ui").bufremove()
+end, opts)
 
 -- General
 map("n", "<leader>d", '"_d', opts)
@@ -55,13 +57,6 @@ map("n", "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 
--- Navigation
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
-map("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
-map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
-map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", opts)
-map("n", "<leader>fs", "<cmd>Telescope grep_string<CR>", opts)
-
 -- Splits
 map("n", "<leader>sv", "<C-w>v", opts)
 map("n", "<leader>sh", "<C-w>s", opts)
@@ -77,7 +72,7 @@ map("n", "<Tab>", "<cmd>bnext<CR>", opts)
 map("n", "<S-Tab>", "<cmd>bprevious<CR>", opts)
 map("n", "<leader>bd", "<cmd>bdelete<CR>", opts)
 
--- Git
+-- Git (via snacks)
 map("n", "<leader>gb", function()
 	Snacks.git.blame_line()
 end, opts)
@@ -100,7 +95,7 @@ map("n", "<leader>db", '<cmd>lua require"dap".toggle_breakpoint()<CR>', opts)
 map("n", "<leader>dB", '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', opts)
 map("n", "<leader>du", '<cmd>lua require"dapui".toggle()<CR>', opts)
 
--- Neotest & Terminal Splits
+-- Neotest
 map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>', opts)
 map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>', opts)
 map("n", "<leader>td", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', opts)

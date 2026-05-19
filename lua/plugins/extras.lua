@@ -9,7 +9,7 @@ return {
 		opts = {
 			enable_tailwind = true,
 			render = "virtual",
-			virtual_symbol = "",
+			virtual_symbol = "",
 		},
 	},
 	{

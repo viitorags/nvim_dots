@@ -8,10 +8,10 @@ return {
 					header = [[
      ██╗ ██████╗ ██╗   ██╗██████╗  ██████╗ ██╗   ██╗
      ██║██╔═══██╗╚██╗ ██╔╝██╔══██╗██╔═══██╗╚██╗ ██╔╝
-     ██║██║   ██║ ╚████╔╝ ██████╔╝██║   ██║ ╚████╔╝ 
-██   ██║██║   ██║  ╚██╔╝  ██╔══██╗██║   ██║  ╚██╔╝  
-╚█████╔╝╚██████╔╝   ██║   ██████╔╝╚██████╔╝   ██║   
- ╚════╝  ╚═════╝    ╚═╝   ╚═════╝  ╚═════╝    ╚═╝   
+     ██║██║   ██║ ╚████╔╝ ██████╔╝██║   ██║ ╚████╔╝
+██   ██║██║   ██║  ╚██╔╝  ██╔══██╗██║   ██║  ╚██╔╝
+╚█████╔╝╚██████╔╝   ██║   ██████╔╝╚██████╔╝   ██║
+ ╚════╝  ╚═════╝    ╚═╝   ╚═════╝  ╚═════╝    ╚═╝
         ]],
 					keys = {
 						{
@@ -20,18 +20,11 @@ return {
 							desc = "Find File",
 							action = ":lua Snacks.dashboard.pick('smart')",
 						},
-						-- { icon = ' ', key = 'e', desc = 'New File', action = ':ene | startinsert' },
-						-- {
-						--   icon = ' ',
-						--   key = 'g',
-						--   desc = 'Find Text',
-						--   action = ":lua Snacks.dashboard.pick('live_grep')",
-						-- },
 						{
 							function()
 								if require("nixCatsUtils").isNixCats == true then
 									return {
-										icon = " ",
+										icon = " ",
 										key = "c",
 										desc = "Dotfiles Folder",
 										action = ":tcd $HOME/dotfiles/ | :e .",
@@ -42,13 +35,13 @@ return {
 							end,
 						},
 						{
-							icon = " ",
+							icon = " ",
 							key = "r",
 							desc = "Recent Files",
 							action = ":lua Snacks.dashboard.pick('oldfiles')",
 						},
 						{
-							icon = " ",
+							icon = " ",
 							key = "p",
 							desc = "Project Folder",
 							action = ":tcd $HOME/Workspace/Projects/ | :e .",
@@ -59,7 +52,7 @@ return {
 									return {}
 								else
 									return {
-										icon = " ",
+										icon = " ",
 										key = "s",
 										desc = "Settings",
 										action = ":e $MYVIMRC | :tcd %:p:h",
@@ -74,17 +67,11 @@ return {
 							action = ":Lazy",
 							enabled = package.loaded.lazy ~= nil,
 						},
-						{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+						{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 					},
 				},
-				-- formats = {
-				--   key = function(item)
-				--     return { { '[', hl = 'special' }, { item.key, hl = 'key' }, { ']', hl = 'special' } }
-				--   end,
-				-- },
 				sections = {
 					{ section = "header" },
-					-- { section = 'terminal', cmd = 'cowsay -t "JOYBOY"', hl = 'header', padding = 1, indent = 4 },
 					{ section = "keys", padding = 2, gap = 0 },
 				},
 			},
@@ -108,13 +95,12 @@ return {
 					priority = 200,
 					underline = false,
 					only_current = false,
-					hl = "SnacksIndentScope", ---@type string|string[] hl group for scopes
+					hl = "SnacksIndentScope",
 				},
 			},
 			statuscolumn = {
 				enabled = true,
-				left = { --[[ "mark", "sign" ]]
-				},
+				left = {},
 				right = { "fold", "git" },
 				folds = {
 					open = true,

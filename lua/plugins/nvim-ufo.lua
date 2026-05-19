@@ -19,7 +19,7 @@ return {
 		require("ufo").setup({
 			open_fold_hl_timeout = 0,
 			fold_virt_text_handler = function(text, lnum, end_lnum, width)
-				local suffix = "  "
+				local suffix = "  "
 				local lines = ("(%d lines) "):format(end_lnum - lnum)
 
 				local cur_width = 0
