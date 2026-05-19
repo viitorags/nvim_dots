@@ -61,6 +61,7 @@ return {
 	},
 	{
 		"NotAShelf/direnv.nvim",
+		lazy = false,
 		config = function()
 			require("direnv").setup({
 				autoload_direnv = true,
