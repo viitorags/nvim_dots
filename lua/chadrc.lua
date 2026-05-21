@@ -22,6 +22,10 @@ M.ui = {
 		theme = "minimal",
 		separator_style = "round",
 	},
+	cmp = {
+		style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
+		icons_left = false,
+	},
 }
 
 return M

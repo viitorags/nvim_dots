@@ -1,12 +1,11 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = "User FilePost",
-	dependencies = { "blink" },
+	dependencies = { "nvim-cmp" },
 	config = function()
-		-- Enhance global capabilities with blink completions support
-		local ok, blink = pcall(require, "blink.cmp")
+		local ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 		if ok then
-			vim.lsp.config("*", { capabilities = blink.get_lsp_capabilities() })
+			vim.lsp.config("*", { capabilities = cmp_lsp.default_capabilities() })
 		end
 
 		local function get_vue_plugin_path()
