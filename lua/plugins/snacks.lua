@@ -2,6 +2,9 @@ return {
 	"folke/snacks.nvim",
 	lazy = false,
 	priority = 1000,
+	dependencies = {
+		"echasnovski/mini.icons",
+	},
 	config = function()
 		require("snacks").setup({
 			dashboard = {
