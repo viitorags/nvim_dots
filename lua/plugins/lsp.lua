@@ -163,33 +163,6 @@ return {
 					},
 				},
 
-				rust_analyzer = {
-					settings = {
-						["rust-analyzer"] = {
-							cargo = {
-								allFeatures = true,
-							},
-							checkOnSave = {
-								command = "clippy",
-							},
-						},
-					},
-				},
-
-				clangd = {
-					filetypes = { "c", "cpp" },
-					cmd = { "clangd", "--compile-commands-dir=." },
-					init_options = {
-						clangdFileStatus = true,
-						inlayHints = {
-							enable = true,
-							parameterNames = true,
-							parameterTypes = true,
-							variableTypes = true,
-						},
-					},
-				},
-
 				nixd = {
 					on_attach = function(client)
 						client.server_capabilities.codeActionProvider = nil

@@ -44,32 +44,20 @@
               typescript
               codesnap
               tree-sitter
-              delve
               vue-language-server
               tslib
-              # PHP / Laravel
-              php83Packages.phpstan
-
-              # Go
-              go
-              gopls
+              phpstan
               golangci-lint
               delve
-
-              # Rust
               cargo
               rustc
               rust-analyzer
               clippy
               rustfmt
-
-              # C / C++
-              clang-tools # Includes clangd
+              clang-tools
               cpplint
               gdb
               cmake
-
-              # C#
               netcoredbg
             ];
           };

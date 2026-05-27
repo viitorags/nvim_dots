@@ -13,7 +13,7 @@ return {
 
 	-- Laravel
 	{
-		"adalzotto/laravel.nvim",
+		"adalessa/laravel.nvim",
 		dependencies = {
 			"tpope/vim-dotenv",
 			"nvim-telescope/telescope.nvim",
@@ -58,7 +58,7 @@ return {
 	{
 		"ray-x/go.nvim",
 		dependencies = {
-			"ray-x/gui.lua",
+			"ray-x/guihua.lua",
 			"neovim/nvim-lspconfig",
 			"nvim-treesitter/nvim-treesitter",
 		},
@@ -83,7 +83,8 @@ return {
 	},
 
 	-- Neotest Adapters
-	{ "nvim-neotest/neotest-phpunit", lazy = true },
+	{ "olimorris/neotest-phpunit", lazy = true },
+	{ "Issafalcon/neotest-dotnet", lazy = true },
 	{ "fredrikaverpil/neotest-golang", lazy = true },
 	{ "rouge8/neotest-rust", lazy = true },
 }

@@ -1,26 +1,10 @@
 return {
 	"echasnovski/mini.icons",
-	lazy = false,
-	priority = 1000,
 	config = function()
 		local icons = require("mini.icons")
 		icons.setup({
 			directory = {
-				-- Laravel & PHP
-				["app"] = { glyph = "󰙨", hl = "MiniIconsBlue" },
-				["bootstrap"] = { glyph = "󰒲", hl = "MiniIconsPurple" },
-				["database"] = { glyph = "󰆟", hl = "MiniIconsOrange" },
-				["resources"] = { glyph = "󰈫", hl = "MiniIconsPink" },
-				["storage"] = { glyph = "󰉉", hl = "MiniIconsRed" },
-				["tests"] = { glyph = "󰙨", hl = "MiniIconsGreen" },
-				-- C / C++
-				["include"] = { glyph = "", hl = "MiniIconsYellow" },
-				-- Rust
-				["target"] = { glyph = "󰚔", hl = "MiniIconsRed" },
-				-- Go
 				["cmd"] = { glyph = "󰢬", hl = "MiniIconsBlue" },
-				["pkg"] = { glyph = "󰏖", hl = "MiniIconsBlue" },
-
 				["public"] = { glyph = "󰉌", hl = "MiniIconsGreen" },
 				["images"] = { glyph = "󰉏", hl = "MiniIconsPurple" },
 				["icons"] = { glyph = "󰉏", hl = "MiniIconsPurple" },
@@ -62,14 +46,7 @@ return {
 			file = {
 				-- PHP / Laravel
 				["artisan"] = { glyph = "󰠄", hl = "MiniIconsRed" },
-				["composer.json"] = { glyph = "", hl = "MiniIconsBlue" },
-				["composer.lock"] = { glyph = "", hl = "MiniIconsBlue" },
 				["phpunit.xml"] = { glyph = "󰙨", hl = "MiniIconsGreen" },
-				-- Rust
-				["Cargo.toml"] = { glyph = "", hl = "MiniIconsRed" },
-				["Cargo.lock"] = { glyph = "", hl = "MiniIconsRed" },
-				-- C / C++
-				["Makefile"] = { glyph = "", hl = "MiniIconsGrey" },
 				["CMakeLists.txt"] = { glyph = "", hl = "MiniIconsBlue" },
 				-- C#
 				["*.sln"] = { glyph = "󰌛", hl = "MiniIconsPurple" },
@@ -101,6 +78,5 @@ return {
 				["rest"] = { glyph = "󱂛", hl = "MiniIconsRed" },
 			},
 		})
-		icons.mock_nvim_web_devicons()
 	end,
 }
