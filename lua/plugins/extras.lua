@@ -29,7 +29,7 @@ return {
 	},
 	{ "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown" } },
 	{ "windwp/nvim-ts-autotag", event = "User FilePost", opts = {} },
-	{ "nvim-tree/nvim-web-devicons", lazy = false, opts = {} },
+	{ "nvim-tree/nvim-web-devicons", enabled = false },
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
 	{ "stevearc/overseer.nvim", event = "VeryLazy", opts = {} },
 	{ "folke/which-key.nvim", event = "VeryLazy", opts = {} },

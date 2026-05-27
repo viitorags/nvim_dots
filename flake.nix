@@ -47,6 +47,30 @@
               delve
               vue-language-server
               tslib
+              # PHP / Laravel
+              php83Packages.phpstan
+
+              # Go
+              go
+              gopls
+              golangci-lint
+              delve
+
+              # Rust
+              cargo
+              rustc
+              rust-analyzer
+              clippy
+              rustfmt
+
+              # C / C++
+              clang-tools # Includes clangd
+              cpplint
+              gdb
+              cmake
+
+              # C#
+              netcoredbg
             ];
           };
 

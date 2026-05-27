@@ -9,6 +9,9 @@ return {
 		"marilari88/neotest-vitest",
 		"nvim-neotest/neotest-jest",
 		"rcasia/neotest-java",
+		"nvim-neotest/neotest-phpunit",
+		"fredrikaverpil/neotest-golang",
+		"rouge8/neotest-rust",
 	},
 	config = function()
 		require("neotest").setup({
@@ -23,6 +26,9 @@ return {
 					end,
 				}),
 				require("neotest-java"),
+				require("neotest-phpunit"),
+				require("neotest-golang"),
+				require("neotest-rust"),
 			},
 		})
 	end,

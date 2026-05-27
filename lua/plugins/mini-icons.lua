@@ -1,8 +1,26 @@
 return {
 	"echasnovski/mini.icons",
+	lazy = false,
+	priority = 1000,
 	config = function()
-		require("mini.icons").setup({
+		local icons = require("mini.icons")
+		icons.setup({
 			directory = {
+				-- Laravel & PHP
+				["app"] = { glyph = "󰙨", hl = "MiniIconsBlue" },
+				["bootstrap"] = { glyph = "󰒲", hl = "MiniIconsPurple" },
+				["database"] = { glyph = "󰆟", hl = "MiniIconsOrange" },
+				["resources"] = { glyph = "󰈫", hl = "MiniIconsPink" },
+				["storage"] = { glyph = "󰉉", hl = "MiniIconsRed" },
+				["tests"] = { glyph = "󰙨", hl = "MiniIconsGreen" },
+				-- C / C++
+				["include"] = { glyph = "", hl = "MiniIconsYellow" },
+				-- Rust
+				["target"] = { glyph = "󰚔", hl = "MiniIconsRed" },
+				-- Go
+				["cmd"] = { glyph = "󰢬", hl = "MiniIconsBlue" },
+				["pkg"] = { glyph = "󰏖", hl = "MiniIconsBlue" },
+
 				["public"] = { glyph = "󰉌", hl = "MiniIconsGreen" },
 				["images"] = { glyph = "󰉏", hl = "MiniIconsPurple" },
 				["icons"] = { glyph = "󰉏", hl = "MiniIconsPurple" },
@@ -42,10 +60,26 @@ return {
 			},
 
 			file = {
+				-- PHP / Laravel
+				["artisan"] = { glyph = "󰠄", hl = "MiniIconsRed" },
+				["composer.json"] = { glyph = "", hl = "MiniIconsBlue" },
+				["composer.lock"] = { glyph = "", hl = "MiniIconsBlue" },
+				["phpunit.xml"] = { glyph = "󰙨", hl = "MiniIconsGreen" },
+				-- Rust
+				["Cargo.toml"] = { glyph = "", hl = "MiniIconsRed" },
+				["Cargo.lock"] = { glyph = "", hl = "MiniIconsRed" },
+				-- C / C++
+				["Makefile"] = { glyph = "", hl = "MiniIconsGrey" },
+				["CMakeLists.txt"] = { glyph = "", hl = "MiniIconsBlue" },
+				-- C#
+				["*.sln"] = { glyph = "󰌛", hl = "MiniIconsPurple" },
+				["*.csproj"] = { glyph = "󰌛", hl = "MiniIconsBlue" },
+
 				["docker-composer.yml"] = { glyph = "󰡨", hl = "MiniIconsRed" },
 				["docker-compose.yml"] = { glyph = "󰡨", hl = "MiniIconsRed" },
 				["go.mod"] = { glyph = "", hl = "MiniIconsPurple" },
 				["go.sum"] = { glyph = "", hl = "MiniIconsGreen" },
+				[".env"] = { glyph = "󰁿", hl = "MiniIconsYellow" },
 			},
 
 			filetype = {
@@ -55,9 +89,18 @@ return {
 			},
 
 			extension = {
+				["php"] = { glyph = "", hl = "MiniIconsBlue" },
+				["blade.php"] = { glyph = "󰠄", hl = "MiniIconsRed" },
+				["cs"] = { glyph = "󰌛", hl = "MiniIconsBlue" },
+				["rs"] = { glyph = "", hl = "MiniIconsOrange" },
+				["c"] = { glyph = "", hl = "MiniIconsBlue" },
+				["h"] = { glyph = "", hl = "MiniIconsBlue" },
+				["cpp"] = { glyph = "", hl = "MiniIconsBlue" },
+				["hpp"] = { glyph = "", hl = "MiniIconsBlue" },
 				["ejs"] = { glyph = " ", hl = "MiniIconsYellow" },
 				["rest"] = { glyph = "󱂛", hl = "MiniIconsRed" },
 			},
 		})
+		icons.mock_nvim_web_devicons()
 	end,
 }
