@@ -59,6 +59,31 @@
               gdb
               cmake
               netcoredbg
+              gopls
+              astro-language-server
+              intelephense
+              vtsls
+              tailwindcss-language-server
+              vscode-langservers-extracted
+              eslint
+              phpactor
+              rust-analyzer
+              emmet-ls
+              lua-language-server
+              stylua
+              rustfmt
+              prettier
+              pyright
+              black
+              roslyn-ls
+              nixfmt
+              bash-language-server
+              shfmt
+              nixd
+              nil
+              marksman
+              svelte-language-server
+              templ
             ];
           };
 

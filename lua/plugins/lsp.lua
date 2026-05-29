@@ -18,6 +18,16 @@ return {
 			return vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 		end
 
+		local function get_typescript_sdk_path()
+			if require("nixCatsUtils").isNixCats then
+				local exe = vim.fn.exepath("tsserver")
+				if exe ~= "" then
+					return vim.fn.glob(vim.fs.dirname(exe) .. "/../lib/node_modules/typescript/lib", true, true)[1]
+				end
+			end
+			return vim.fn.stdpath("data") .. "/mason/packages/typescript-language-server/node_modules/typescript/lib"
+		end
+
 		local function setup_servers()
 			local vue_plugin = {
 				name = "@vue/typescript-plugin",
@@ -34,9 +44,23 @@ return {
 				marksman = {},
 				jsonls = {},
 				pyright = {},
-				sveltels = {},
+				svelte = {
+					init_options = {
+						typescript = {
+							tsdk = get_typescript_sdk_path(),
+						},
+					},
+				},
 				jdtls = {},
 				templ = {},
+
+				astro = {
+					init_options = {
+						typescript = {
+							tsdk = get_typescript_sdk_path(),
+						},
+					},
+				},
 
 				html = {
 					filetypes = { "html", "ejs" },
@@ -250,9 +274,6 @@ return {
 
 			for server, config in pairs(servers) do
 				vim.lsp.config(server, config)
-			end
-
-			for server, _ in pairs(require("lspconfig.configs")) do
 				vim.lsp.enable(server)
 			end
 		end
