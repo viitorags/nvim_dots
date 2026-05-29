@@ -250,6 +250,9 @@ return {
 
 			for server, config in pairs(servers) do
 				vim.lsp.config(server, config)
+			end
+
+			for server, _ in pairs(require("lspconfig.configs")) do
 				vim.lsp.enable(server)
 			end
 		end
