@@ -49,10 +49,7 @@
               phpstan
               golangci-lint
               delve
-              cargo
-              rustc
               rust-analyzer
-              clippy
               rustfmt
               clang-tools
               cpplint
