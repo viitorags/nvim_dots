@@ -32,17 +32,18 @@ return {
 				html = { "prettier" },
 				css = { "prettier" },
 				vue = { "prettier" },
+				astro = { "prettier" },
 				sh = { "shfmt" },
 				nix = { "nixfmt" },
 				ejs = { "prettier" },
-				go = { "go fmt" },
+				go = { "gofmt" },
 				php = function()
 					local fname = vim.api.nvim_buf_get_name(0)
 					local laravel_root = vim.fs.root(fname, { "artisan" })
 					if laravel_root then
 						return { "pint_local" }
 					end
-					return { "php-cs-fixer" }
+					return { "php_cs_fixer" }
 				end,
 				qml = { "qmlfmt" },
 				rust = { "rustfmt" },

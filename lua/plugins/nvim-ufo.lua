@@ -18,6 +18,9 @@ return {
 		end, { desc = "Peek folded lines under cursor" })
 
 		require("ufo").setup({
+			provider_selector = function(bufnr, filetype, buftype)
+				return { "treesitter", "indent" }
+			end,
 			open_fold_hl_timeout = 0,
 			fold_virt_text_handler = function(text, lnum, end_lnum, width)
 				local suffix = "  "

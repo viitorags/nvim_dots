@@ -1,15 +1,35 @@
 return {
+	{
+		import = "nvchad.blink.lazyspec",
+		opts_extend = { "sources.default" },
+		opts = {
+			completion = {
+				trigger = {
+					show_on_blocked_trigger_characters = function()
+						local chars = { "'", '"', "(", "{", "[" }
+						local target_fts = { "html", "php", "vue", "reactjs", "javascriptreact", "typescriptreact" }
+						if vim.tbl_contains(target_fts, vim.bo.filetype) then
+							table.insert(chars, ">")
+						end
+						return chars
+					end,
+				},
+			},
+		},
+	},
 	-- Disable NvChad's nvim-cmp (replaced by blink.cmp)
-	-- { "hrsh7th/nvim-cmp", enabled = false },
-	-- { "saadparwaiz1/cmp_luasnip", enabled = false },
-	-- { "hrsh7th/cmp-nvim-lua", enabled = false },
-	-- { "hrsh7th/cmp-nvim-lsp", enabled = false },
-	-- { "hrsh7th/cmp-buffer", enabled = false },
-	-- { "hrsh7th/cmp-path", enabled = false },
+	{ "hrsh7th/nvim-cmp", enabled = false },
+	{ "saadparwaiz1/cmp_luasnip", enabled = false },
+	{ "hrsh7th/cmp-nvim-lua", enabled = false },
+	{ "hrsh7th/cmp-nvim-lsp", enabled = false },
+	{ "hrsh7th/cmp-buffer", enabled = false },
+	{ "hrsh7th/cmp-path", enabled = false },
 	-- Disable NvChad's telescope (replaced by snacks.nvim picker)
 	{ "nvim-telescope/telescope.nvim", enabled = false },
 	-- Disable NvChad's nvim-tree (replaced by snacks.nvim explorer)
 	{ "nvim-tree/nvim-tree.lua", enabled = false },
+	-- Disable NvChad's indent-blankline
+	{ "lukas-reineke/indent-blankline.nvim", enabled = false },
 
 	-- Laravel
 	{

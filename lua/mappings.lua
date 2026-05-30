@@ -3,6 +3,19 @@ require("nvchad.mappings")
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+map({ "n", "v" }, "<RightMouse>", function()
+	require("menu.utils").delete_old_menus()
+	vim.cmd.exec('"normal! \\<RightMouse>"')
+
+	local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+	local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
+	require("menu").open(options, { mouse = true })
+end, opts)
+
+map({ "n", "v" }, "<C-t>", function()
+	require("menu").open("default")
+end, opts)
+
 -- Snacks keymaps (override NvChad's NvimTree/Telescope defaults)
 map("n", "<leader>e", function()
 	local explorer_pickers = Snacks.picker.get({ source = "explorer" })
