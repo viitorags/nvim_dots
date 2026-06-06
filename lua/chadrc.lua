@@ -18,8 +18,8 @@ M.ui = {
 		enabled = false,
 	},
 	statusline = {
-		theme = "minimal",
-		separator_style = "round",
+		theme = "default",
+		-- separator_style = "round",
 	},
 	cmp = {
 		style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored

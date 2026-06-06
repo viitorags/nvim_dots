@@ -13,11 +13,11 @@ return {
 					header = [[
      ██╗ ██████╗ ██╗   ██╗██████╗  ██████╗ ██╗   ██╗
      ██║██╔═══██╗╚██╗ ██╔╝██╔══██╗██╔═══██╗╚██╗ ██╔╝
-     ██║██║   ██║ ╚████╔╝ ██████╔╝██║   ██║ ╚████╔╝ 
-██   ██║██║   ██║  ╚██╔╝  ██╔══██╗██║   ██║  ╚██╔╝  
-╚█████╔╝╚██████╔╝   ██║   ██████╔╝╚██████╔╝   ██║   
- ╚════╝  ╚═════╝    ╚═╝   ╚═════╝  ╚═════╝    ╚═╝   
-        ]],
+     ██║██║   ██║ ╚████╔╝ ██████╔╝██║   ██║ ╚████╔╝
+██   ██║██║   ██║  ╚██╔╝  ██╔══██╗██║   ██║  ╚██╔╝
+╚█████╔╝╚██████╔╝   ██║   ██████╔╝╚██████╔╝   ██║
+ ╚════╝  ╚═════╝    ╚═╝   ╚═════╝  ╚═════╝    ╚═╝
+					        ]],
 					keys = {
 						{
 							icon = "󰈞 ",
@@ -33,6 +33,12 @@ return {
 						--   action = ":lua Snacks.dashboard.pick('live_grep')",
 						-- },
 						{
+							icon = " ",
+							key = "r",
+							desc = "Recent Files",
+							action = ":lua Snacks.dashboard.pick('oldfiles')",
+						},
+						{
 							function()
 								if require("nixCatsUtils").isNixCats == true then
 									return {
@@ -47,10 +53,18 @@ return {
 							end,
 						},
 						{
-							icon = " ",
-							key = "r",
-							desc = "Recent Files",
-							action = ":lua Snacks.dashboard.pick('oldfiles')",
+							function()
+								if require("nixCatsUtils").isNixCats == true then
+									return {
+										icon = " ",
+										key = "v",
+										desc = "Obsidian Vault",
+										action = ":tcd $HOME/Workspace/Brain | :e .",
+									}
+								else
+									return {}
+								end
+							end,
 						},
 						{
 							icon = " ",
@@ -84,7 +98,7 @@ return {
 				},
 				sections = {
 					{ section = "header" },
-					{ section = "keys", padding = 2, gap = 0 },
+					{ section = "keys" },
 				},
 			},
 			indent = {
@@ -112,6 +126,7 @@ return {
 			},
 			statuscolumn = {
 				enabled = true,
+				left = {},
 				right = { "fold", "git" },
 				folds = {
 					open = true,
