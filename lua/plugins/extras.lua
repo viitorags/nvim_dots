@@ -77,7 +77,7 @@ return {
 		end,
 	},
 	{
-		"epwalsh/obsidian.nvim",
+		"obsidian-nvim/obsidian.nvim",
 		version = "*",
 		lazy = true,
 		ft = "markdown",
@@ -90,10 +90,15 @@ return {
 					name = "personal",
 					path = "~/Workspace/Brain",
 				},
-				{
-					name = "work",
-					path = "~/Workspace/Brain",
-				},
+			},
+			attachments = {
+				img_folder = "99 - Sistema/assets",
+			},
+			picker = {
+				name = "snacks.picker",
+			},
+			templates = {
+				folder = "99 - Sistema/templates",
 			},
 		},
 	},
