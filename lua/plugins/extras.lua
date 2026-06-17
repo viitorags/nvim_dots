@@ -76,30 +76,4 @@ return {
 			})
 		end,
 	},
-	{
-		"obsidian-nvim/obsidian.nvim",
-		version = "*",
-		lazy = true,
-		ft = "markdown",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		opts = {
-			workspaces = {
-				{
-					name = "personal",
-					path = "~/Workspace/Brain",
-				},
-			},
-			attachments = {
-				img_folder = "99 - Sistema/assets",
-			},
-			picker = {
-				name = "snacks.picker",
-			},
-			templates = {
-				folder = "99 - Sistema/templates",
-			},
-		},
-	},
 }
