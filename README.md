@@ -24,7 +24,7 @@ If you are using NixOS, this configuration is designed to be integrated directly
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git ~/.config/nvim
+    git clone https://github.com/vytorags/vytorags.git ~/.config/nvim
     ```
 2.  **Install `lazy.nvim`**:
     The configuration will automatically bootstrap `lazy.nvim` on the first launch.
