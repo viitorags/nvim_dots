@@ -81,6 +81,7 @@
               marksman
               svelte-language-server
               templ
+              luau-lsp
             ];
           };
 

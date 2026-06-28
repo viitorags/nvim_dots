@@ -32,25 +32,25 @@ return {
 	{ "lukas-reineke/indent-blankline.nvim", enabled = false },
 
 	-- Laravel
-	{
-		"adalessa/laravel.nvim",
-		dependencies = {
-			"tpope/vim-dotenv",
-			"nvim-telescope/telescope.nvim",
-			"MunifTanjim/nui.nvim",
-			"kevinhwang91/promise-async",
-		},
-		event = { "VeryLazy" },
-		opts = {
-			lsp_server = "intelephense",
-			features = {
-				null_ls = {
-					enabled = false,
-				},
-			},
-		},
-		config = true,
-	},
+	-- {
+	-- 	"adalessa/laravel.nvim",
+	-- 	dependencies = {
+	-- 		"tpope/vim-dotenv",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"kevinhwang91/promise-async",
+	-- 	},
+	-- 	event = { "VeryLazy" },
+	-- 	opts = {
+	-- 		lsp_server = "intelephense",
+	-- 		features = {
+	-- 			null_ls = {
+	-- 				enabled = false,
+	-- 			},
+	-- 		},
+	-- 	},
+	-- 	config = true,
+	-- },
 
 	-- Rust
 	{

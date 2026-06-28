@@ -44,6 +44,7 @@ return {
 				marksman = {},
 				jsonls = {},
 				pyright = {},
+				luau_lsp = {},
 				svelte = {
 					init_options = {
 						typescript = {
