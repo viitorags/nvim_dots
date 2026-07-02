@@ -1,5 +1,11 @@
 require("nvchad.autocmds")
 
+vim.api.nvim_create_autocmd("DirChanged", {
+	callback = function()
+		vim.g.wezterm_cwd = vim.fn.getcwd()
+	end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "jsonq", "json", "nix", "lua" },
 	callback = function()

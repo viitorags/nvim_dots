@@ -1,4 +1,52 @@
-require("nixCatsUtils").setup({
+-- NixCats -> nix-wrapper-modules Compatibility Shim
+local has_nix_info, nix_info = pcall(require, "nix-info")
+
+-- Simulates the global nixCats() function using the nix-info table
+_G.nixCats = function(key)
+  if has_nix_info then
+    -- Tries to get from info (e.g.: 'have_nerd_font')
+    return nix_info.info[key]
+  else
+    -- Fallback/Default when Neovim runs without Nix (Mason mode)
+    if key == "have_nerd_font" then return false end
+    return nil
+  end
+end
+
+-- Simulates the nixCatsUtils module
+package.preload["nixCatsUtils"] = function()
+  return {
+    isNixCats = has_nix_info,
+    enableForCategory = function(v, default)
+      if has_nix_info then
+        return nixCats(v) and true or false
+      else
+        return default
+      end
+    end,
+    getCatOrDefault = function(v, default)
+      if has_nix_info then
+        return nixCats(v)
+      else
+        return default
+      end
+    end,
+    lazyAdd = function(v, o)
+      if has_nix_info then
+        return o
+      else
+        return v
+      end
+    end,
+    setup = function(v)
+      -- Do nothing as the global nixCats is already shimmed
+    end
+  }
+end
+
+-- Initializes the mock or real nixCats
+local nixCatsUtils = require("nixCatsUtils")
+nixCatsUtils.setup({
 	non_nix_value = true,
 })
 
@@ -46,8 +94,3 @@ require("autocmds")
 vim.schedule(function()
 	require("mappings")
 end)
-
--- local nixCatsUtils = require("nixCatsUtils")
--- if not nixCatsUtils.isNixCats then
--- 	require("plugins.mason")
--- end

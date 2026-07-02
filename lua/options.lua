@@ -45,3 +45,4 @@ o.updatetime = 100
 o.timeoutlen = 200
 o.redrawtime = 1500
 o.conceallevel = 1
+o.autochdir = true

@@ -24,7 +24,7 @@ return {
 					local cwd = vim.fn.getcwd()
 					local dll = vim.fn.glob(cwd .. "/bin/Debug/**/*.dll")
 					if dll == "" then
-						vim.notify("Nenhum .dll encontrado em bin/Debug", vim.log.levels.ERROR)
+						vim.notify("No .dll found in bin/Debug", vim.log.levels.ERROR)
 						return ""
 					end
 					return dll
