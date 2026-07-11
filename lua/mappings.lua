@@ -83,7 +83,7 @@ for i = 1, 9 do
 end
 
 map("n", "<C-q>", function()
-	require("util.ui").bufremove()
+	require("snacks").bufdelete()
 end, opts)
 
 -- General
