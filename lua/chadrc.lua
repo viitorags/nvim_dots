@@ -19,11 +19,11 @@ M.ui = {
 	},
 	statusline = {
 		theme = "default",
-		-- separator_style = "round",
+		separator_style = "round",
 	},
 	cmp = {
-		style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
-		icons_left = false,
+		style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
+		icons_left = true,
 	},
 }
 
