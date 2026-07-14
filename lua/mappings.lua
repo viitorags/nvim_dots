@@ -1,6 +1,7 @@
 require("nvchad.mappings")
 
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 local opts = { noremap = true, silent = true }
 
 map({ "n", "v" }, "<RightMouse>", function()
@@ -148,3 +149,7 @@ map("n", "<leader>du", '<cmd>lua require"dapui".toggle()<CR>', opts)
 map("n", "<leader>tn", '<cmd>lua require("neotest").run.run()<CR>', opts)
 map("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>', opts)
 map("n", "<leader>td", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', opts)
+
+-- Delete Maps
+nomap("n", "<leader>ff")
+nomap("n", "<leader>bd")
