@@ -147,8 +147,10 @@ local function setup_inlay_hints()
       for _, item in ipairs(hints) do
         local hint = item.inlay_hint
         local hl_group = hint_hl_group(hint.kind)
+        local line_content = (vim.api.nvim_buf_get_lines(bufnr, hint.position.line, hint.position.line + 1, false) or { '' })[1]
+        local clamped_col = math.min(hint.position.character, #line_content)
 
-        vim.api.nvim_buf_set_extmark(bufnr, pill_ns, hint.position.line, hint.position.character, {
+        vim.api.nvim_buf_set_extmark(bufnr, pill_ns, hint.position.line, clamped_col, {
           virt_text_pos = 'inline',
           virt_text = {
             { LEFT_CAP, 'LspInlayHintPillCap' },
